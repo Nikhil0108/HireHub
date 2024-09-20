@@ -8,35 +8,33 @@ import companyRoute from "./routes/company.route.js";
 import jobRoute from "./routes/job.route.js";
 import applicationRoute from "./routes/application.route.js";
 
-dotenv.config({});
+dotenv.config();
 
 const app = express();
 
-// middleware
+// Middleware
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
 const corsOptions = {
-    origin:'http://hiredothub.netlify.app',
-    credentials:true,
-    methods:["GET","POST","PUT","DELETE"],
-}
+    origin: ['http://hiredothub.netlify.app', 'https://hiredothub.netlify.app'], // Allow both http and https
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+};
 
 app.use(cors(corsOptions));
-app.options("*",cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
 
-
-// api's
+// APIs
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 
-
-
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
     connectDB();
     console.log(`Server running at port ${PORT}`);
-})
+});
