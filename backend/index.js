@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-    origin:'https://hiredothub.netlify.app',
+    origin:'http://hiredothub.netlify.app',
     credentials:true,
     methods:["GET","POST","PUT","DELETE"],
 }
