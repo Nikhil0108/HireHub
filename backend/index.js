@@ -18,10 +18,12 @@ app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
     origin:'https://hiredothub.netlify.app',
-    credentials:true
+    credentials:true,
+    methods:["GET","POST","PUT","DELETE"],
 }
 
 app.use(cors(corsOptions));
+app.options("*",cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
 
