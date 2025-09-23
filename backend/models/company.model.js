@@ -15,6 +15,7 @@ const companySchema = new mongoose.Schema({
     location:{
         type:String 
     },
+    
     logo:{
         type:String // URL to company logo
     },
@@ -24,4 +25,5 @@ const companySchema = new mongoose.Schema({
         required:true
     }
 },{timestamps:true})
+
 export const Company = mongoose.model("Company", companySchema);
