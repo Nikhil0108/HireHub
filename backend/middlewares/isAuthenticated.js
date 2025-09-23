@@ -13,7 +13,8 @@ const isAuthenticated = (req, res, next) => {
         const decode = jwt.verify(token, process.env.SECRET_KEY);
         req.id = decode.userId; // Attach user ID to request
         next(); // Proceed to the next middleware or route handler
-    } catch (error) {
+    } 
+    catch (error) {
         console.error("Authentication error:", error);
         return res.status(401).json({
             message: "Invalid token",
@@ -23,3 +24,4 @@ const isAuthenticated = (req, res, next) => {
 };
 
 export default isAuthenticated;
+
