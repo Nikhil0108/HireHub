@@ -32,6 +32,7 @@ export const registerCompany = async (req, res) => {
         console.log(error);
     }
 }
+
 export const getCompany = async (req, res) => {
     try {
         const userId = req.id; // logged in user id
@@ -97,4 +98,5 @@ export const updateCompany = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
+
 }
